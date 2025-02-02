@@ -12,7 +12,7 @@ import SwiftData
 ///
 /// - Note: Register this class to your model schema.
 @Model
-public final class LocalDataStore: Sendable {
+public class LocalDataStore: @unchecked Sendable {
     @inlinable
     public var key: String
     
