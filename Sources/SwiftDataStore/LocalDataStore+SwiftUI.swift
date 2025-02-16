@@ -38,7 +38,7 @@ public struct DSView<Content, Value>: View where Content: View, Value: Codable &
     public init(
         key: String,
         defaultValue: Value,
-        content: @escaping (Value) -> Content
+        @ViewBuilder content: @escaping (Value) -> Content
     ) {
         self.content = content
         self.key = key
@@ -47,7 +47,7 @@ public struct DSView<Content, Value>: View where Content: View, Value: Codable &
     
     public init(
         with binding: StoreBinding<Value>,
-        content: @escaping (Value) -> Content
+        @ViewBuilder content: @escaping (Value) -> Content
     ) {
         self.content = content
         self.key = binding.key
@@ -89,7 +89,7 @@ public struct DSBinding<Content, Value>: View where Content: View, Value: Codabl
     public init(
         key: String,
         defaultValue: Value,
-        content: @escaping (Binding<Value>) -> Content
+        @ViewBuilder content: @escaping (Binding<Value>) -> Content
     ) {
         self.content = content
         self.key = key
@@ -98,7 +98,7 @@ public struct DSBinding<Content, Value>: View where Content: View, Value: Codabl
     
     public init(
         with binding: StoreBinding<Value>,
-        content: @escaping (Binding<Value>) -> Content
+        @ViewBuilder content: @escaping (Binding<Value>) -> Content
     ) {
         self.content = content
         self.key = binding.key
