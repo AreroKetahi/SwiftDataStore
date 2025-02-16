@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct DSView<Content, Value>: View where Content: View, Value: Codable & Sendable {
+public struct DSView<Content, Value>: View where Content: View, Value: Codable & Sendable {
     @Environment(\.modelContext) var modelContext
     @Query var stores: [LocalDataStore]
     
@@ -31,11 +31,11 @@ struct DSView<Content, Value>: View where Content: View, Value: Codable & Sendab
         }
     }
     
-    var body: some View {
+    public var body: some View {
         content(value)
     }
     
-    init(
+    public init(
         key: String,
         defaultValue: Value,
         content: @escaping (Value) -> Content
@@ -45,7 +45,7 @@ struct DSView<Content, Value>: View where Content: View, Value: Codable & Sendab
         self.defaultValue = defaultValue
     }
     
-    init(
+    public init(
         with binding: StoreBinding<Value>,
         content: @escaping (Value) -> Content
     ) {
@@ -55,7 +55,7 @@ struct DSView<Content, Value>: View where Content: View, Value: Codable & Sendab
     }
 }
 
-struct DSBinding<Content, Value>: View where Content: View, Value: Codable & Sendable {
+public struct DSBinding<Content, Value>: View where Content: View, Value: Codable & Sendable {
     @Environment(\.modelContext) var modelContext
     @Query var stores: [LocalDataStore]
     
@@ -82,11 +82,11 @@ struct DSBinding<Content, Value>: View where Content: View, Value: Codable & Sen
         }
     }
     
-    var body: some View {
+    public var body: some View {
         content(binding)
     }
     
-    init(
+    public init(
         key: String,
         defaultValue: Value,
         content: @escaping (Binding<Value>) -> Content
@@ -96,7 +96,7 @@ struct DSBinding<Content, Value>: View where Content: View, Value: Codable & Sen
         self.defaultValue = defaultValue
     }
     
-    init(
+    public init(
         with binding: StoreBinding<Value>,
         content: @escaping (Binding<Value>) -> Content
     ) {
