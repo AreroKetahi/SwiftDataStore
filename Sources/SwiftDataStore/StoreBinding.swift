@@ -28,4 +28,10 @@ public struct StoreBinding<Value>: Sendable where Value: Codable & Sendable {
         self.key = key
         self.defaultValue = defaultValue
     }
+    
+    @inlinable
+    public init<T>(key: String) where Value == Optional<T>, T: Codable & Sendable {
+        self.key = key
+        self.defaultValue = nil
+    }
 }
