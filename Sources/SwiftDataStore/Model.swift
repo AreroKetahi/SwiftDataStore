@@ -13,6 +13,7 @@ import SwiftData
 /// - Note: Register this class to your model schema.
 @Model
 public class LocalDataStore: @unchecked Sendable {
+    @Relationship(.unique)
     public var key: String
     
     public var value: Data
